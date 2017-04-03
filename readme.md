@@ -48,4 +48,4 @@ Demo Setup:
 3. Run java -jar urlcutter-0.0.1-SNAPSHOT.jar
 4. API can be accessed using any REST Client
 
-Database can be accessed - <host>:<port>/console/
+Database can be accessed - host-port/console/
