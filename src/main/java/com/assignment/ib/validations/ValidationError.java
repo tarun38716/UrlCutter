@@ -5,6 +5,10 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+/**
+ * @author Tarun
+ *
+ */
 public class ValidationError {
 
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)

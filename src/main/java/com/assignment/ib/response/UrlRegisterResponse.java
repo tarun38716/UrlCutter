@@ -22,4 +22,9 @@ public class UrlRegisterResponse implements Serializable {
 	public void setShortUrl(String shortUrl) {
 		this.shortUrl = shortUrl;
 	}
+
+	@Override
+	public String toString() {
+		return "UrlRegisterResponse [shortUrl=" + shortUrl + "]";
+	}
 }

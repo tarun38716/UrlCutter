@@ -22,13 +22,13 @@ public class UrlRegisterRequest implements Serializable {
 	@JsonProperty("url")
 	@NotBlank(message = "Please Provide URL.")
 	@URL(message = "Please Provide Valid URL")
-	String url;
+	private String url;
 	
 	@JsonProperty("redirectType")
 	@Nullable
 	@Max(value=302, message = "Please Enter Valid Redirect Type")
 	@Min(value=301, message = "Please Enter Valid Redirect Type")
-	int redirectType;
+	private Integer redirectType;
 
 	public String getUrl() {
 		return url;
@@ -38,11 +38,20 @@ public class UrlRegisterRequest implements Serializable {
 		this.url = url;
 	}
 
-	public int getRedirectType() {
+	public Integer getRedirectType() {
 		return redirectType;
 	}
 
-	public void setRedirectType(int redirectType) {
+	public void setRedirectType(Integer redirectType) {
+		if(null==redirectType){
+			this.redirectType = 302;
+			return;
+		}
 		this.redirectType = redirectType;
+	}
+
+	@Override
+	public String toString() {
+		return "UrlRegisterRequest [url=" + url + ", redirectType=" + redirectType + "]";
 	}
 }

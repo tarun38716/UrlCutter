@@ -11,6 +11,22 @@ public class UrlCutterException extends Exception {
 	private Throwable excep;
 	private String errorMessage;
 	
+	public Throwable getExcep() {
+		return excep;
+	}
+
+	public void setExcep(Throwable excep) {
+		this.excep = excep;
+	}
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+	
 	public UrlCutterException(Throwable excep, String errorMessage) {
 		super();
 		this.excep = excep;

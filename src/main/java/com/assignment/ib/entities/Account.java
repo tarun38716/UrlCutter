@@ -49,6 +49,4 @@ public class Account {
 	public void setUrls(List<Urls> urls) {
 		this.urls = urls;
 	}
-	
-	
 }

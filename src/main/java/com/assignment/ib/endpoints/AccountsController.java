@@ -1,11 +1,15 @@
 package com.assignment.ib.endpoints;
 
+import java.util.Map;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +29,7 @@ public class AccountsController {
 
 	@Autowired
 	@Qualifier("AccountService")
-	AccountService accountService;
+	private AccountService accountService;
 
 	@PostMapping("/account")
 	public ResponseEntity<?> saveAccount(@Valid @RequestBody AccountRequest accountRequest){
@@ -36,5 +40,16 @@ public class AccountsController {
 			return UrlCutterUtility.exceptionResponseBuilder(e);
 		}
 		return new ResponseEntity<AccountResponse>(response,HttpStatus.OK);
+	}
+
+	@GetMapping("/statistic/{accountId}")
+	public ResponseEntity<?> fetchStats(@PathVariable String accountId) {
+		Map<String, Long> response=	null;
+		try{
+			response =	accountService.fetchStats(accountId);
+		} catch(UrlCutterException e) {
+			return UrlCutterUtility.exceptionResponseBuilder(e);
+		}
+		return new ResponseEntity<Map<String, Long>>(response,HttpStatus.OK);
 	}
 }

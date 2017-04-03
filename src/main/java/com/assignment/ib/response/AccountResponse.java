@@ -45,4 +45,8 @@ public class AccountResponse implements Serializable {
 		this.password = password;
 	}
 	
+	@Override
+	public String toString() {
+		return "AccountResponse [success=" + success + ", description=" + description + ", password=" + password + "]";
+	}
 }
