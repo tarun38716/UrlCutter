@@ -33,8 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.csrf().disable()
 		.authorizeRequests().antMatchers("/account").permitAll().and()
 		.authorizeRequests().antMatchers("/console/**").permitAll().and()
-		.authorizeRequests().antMatchers("/redirect/**").permitAll().and()
-		.authorizeRequests().antMatchers("/swagger-ui.html**").permitAll()
+		.authorizeRequests().antMatchers("/redirect/**").permitAll()
 		.anyRequest().authenticated()
 		.and().httpBasic()
 		.authenticationEntryPoint(authEntryPoint)
@@ -51,7 +50,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers(HttpMethod.POST, "/account");
-		web.ignoring().antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources", "/configuration/security", "/swagger-ui.html", "/webjars/**");
 	}
 
 }
