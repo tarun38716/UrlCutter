@@ -9,7 +9,7 @@ URL- /account
 Sample request JSON - { 'AccountId' : 'myAccountId'}
 Sample response JSON - {success: 'true', description: 'Your account is opened', password: 'xC345Fc0'}
 
-- Registration Service
+- Registration Service -
 This Rest endpoint is to register the Long URL with an application and it generates  its shortened URL which can be used to redirect to the Long URL. This has basic authentication. account ID and password is needed to access this end point
 URL- /register
 Sample request JSON -
@@ -19,7 +19,7 @@ redirectType : 301
 }
 Sample response JSON - { shortUrl: '<host>:<port>/redirect/xYswlE'}
 
-- Statistics Service
+- Statistics Service -
 This Rest endpoint is to provide statistics for a particular account.This has basic authentication. account ID and password is needed to access this end point.
 URL- /statistic/{AccountId}
 Sample request JSON - N/A
@@ -30,7 +30,7 @@ Sample response JSON -
 'http://myweb.com/someverylongurl3/thensomedirectory3/: 91,
 }
 
-- Redirect Service
+- Redirect Service -
 This Rest end point is the generated SHORT URL in Registration Service. These short URLS can be used to access the real URL.
 
 ## References
